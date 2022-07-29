@@ -46,6 +46,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cafeGrpBx = new System.Windows.Forms.GroupBox();
+            this.food03priceLbl = new System.Windows.Forms.Label();
+            this.food01ChckBx = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.food4countMtxtb = new System.Windows.Forms.MaskedTextBox();
@@ -67,8 +69,6 @@
             this.givebillBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.finishpriceLbl = new System.Windows.Forms.Label();
-            this.food01ChckBx = new System.Windows.Forms.CheckBox();
-            this.food03priceLbl = new System.Windows.Forms.Label();
             this.OilStationGrpx.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.chooseGrpBx.SuspendLayout();
@@ -292,6 +292,29 @@
             this.cafeGrpBx.TabIndex = 1;
             this.cafeGrpBx.TabStop = false;
             this.cafeGrpBx.Text = "Mini Cafe";
+            // 
+            // food03priceLbl
+            // 
+            this.food03priceLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.food03priceLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.food03priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.food03priceLbl.Location = new System.Drawing.Point(179, 147);
+            this.food03priceLbl.Name = "food03priceLbl";
+            this.food03priceLbl.Size = new System.Drawing.Size(64, 21);
+            this.food03priceLbl.TabIndex = 22;
+            this.food03priceLbl.Text = "1,3";
+            // 
+            // food01ChckBx
+            // 
+            this.food01ChckBx.AutoSize = true;
+            this.food01ChckBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.food01ChckBx.Location = new System.Drawing.Point(22, 68);
+            this.food01ChckBx.Name = "food01ChckBx";
+            this.food01ChckBx.Size = new System.Drawing.Size(105, 22);
+            this.food01ChckBx.TabIndex = 21;
+            this.food01ChckBx.Text = "Potato Free";
+            this.food01ChckBx.UseVisualStyleBackColor = true;
+            this.food01ChckBx.CheckedChanged += new System.EventHandler(this.food1ChckBx_CheckedChanged);
             // 
             // label16
             // 
@@ -517,29 +540,6 @@
             this.finishpriceLbl.Size = new System.Drawing.Size(308, 55);
             this.finishpriceLbl.TabIndex = 12;
             this.finishpriceLbl.Text = "0,00";
-            // 
-            // food01ChckBx
-            // 
-            this.food01ChckBx.AutoSize = true;
-            this.food01ChckBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.food01ChckBx.Location = new System.Drawing.Point(22, 68);
-            this.food01ChckBx.Name = "food01ChckBx";
-            this.food01ChckBx.Size = new System.Drawing.Size(105, 22);
-            this.food01ChckBx.TabIndex = 21;
-            this.food01ChckBx.Text = "Potato Free";
-            this.food01ChckBx.UseVisualStyleBackColor = true;
-            this.food01ChckBx.CheckedChanged += new System.EventHandler(this.food1ChckBx_CheckedChanged);
-            // 
-            // food03priceLbl
-            // 
-            this.food03priceLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.food03priceLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.food03priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.food03priceLbl.Location = new System.Drawing.Point(179, 147);
-            this.food03priceLbl.Name = "food03priceLbl";
-            this.food03priceLbl.Size = new System.Drawing.Size(64, 21);
-            this.food03priceLbl.TabIndex = 22;
-            this.food03priceLbl.Text = "1,3";
             // 
             // Form1
             // 

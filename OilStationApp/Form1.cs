@@ -18,7 +18,6 @@ namespace OilStationApp
         double OilPrice = 0;
         double CafePrice = 0;
         double TotalPrice = 0;
-        int billCount = 0;
         public Form1()
         {
             InitializeComponent();
@@ -70,12 +69,13 @@ namespace OilStationApp
                         {
                             litreMTxtb.Enabled = true;
                             priceMTxtb.Enabled = false;
-
+                            priceMTxtb.Text = string.Empty;
                         }
                         else if (rb.Text == "price")
                         {
                             priceMTxtb.Enabled = true;
                             litreMTxtb.Enabled = false;
+                            litreMTxtb.Text = string.Empty;
                         }
                     }
                 }
@@ -199,9 +199,10 @@ namespace OilStationApp
 
         private void givebillBtn_Click(object sender, EventArgs e)
         {
-            billCount++;
-            iTextSharp.text.Document doc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A7, 10, 10, 10, 10);
-            string PDFpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + "Bill" + billCount.ToString() + ".pdf";
+            Random random = new Random();   
+            int fileRandom = random.Next(100000);
+            iTextSharp.text.Document doc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A7, 10, 10, 5, 0);
+            string PDFpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + "Bill" + fileRandom.ToString() + ".pdf";
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(PDFpath, FileMode.Create));
             doc.Open();
             Paragraph paraghraph = new Paragraph();
@@ -209,13 +210,13 @@ namespace OilStationApp
             double oilprice = double.Parse(oilpriceLbl.Text);
             paraghraph.Add("                        BILL\n");
             paraghraph.Add($"\n");
-
+            paraghraph.Add($" Oil Station :\n");
             paraghraph.Add($" Oil : {oil.Name}\n");
-            paraghraph.Add($" Oil price per litre : {oil.Price}\n");
+            paraghraph.Add($" Oil price per litre : {oil.Price} AZN\n");
             paraghraph.Add($" Oil litre : {oilprice / oil.Price}\n");
-            paraghraph.Add($" Oil price  : {oilprice}\n");
+            paraghraph.Add($" Oil price  : {oilprice} AZN\n");
 
-            paraghraph.Add($" Cafe : \n");
+            paraghraph.Add($"\nMini-Cafe : \n");
             paraghraph.Add("Name           Price   Count  Total\n");
 
             foreach (var item in cafeGrpBx.Controls)
@@ -238,23 +239,20 @@ namespace OilStationApp
                         else if (chckBx.Text == food3ChckBx.Text)
                         {
                             price = double.Parse(food03priceLbl.Text) * double.Parse(food3countMtxtb.Text);
-                            paraghraph.Add($"{food3ChckBx.Text.PadRight(15)}{food03priceLbl.Text.PadRight(8)}  {food3countMtxtb.Text.PadRight(8)}{price}\n");
+                            paraghraph.Add($"{food3ChckBx.Text.PadRight(14)}{food03priceLbl.Text.PadRight(8)}  {food3countMtxtb.Text.PadRight(8)}{price}\n");
                         }
                         else if (chckBx.Text == food4ChckBx.Text)
                         {
                             price = double.Parse(food4priceLbl.Text) * double.Parse(food4countMtxtb.Text);
-                            paraghraph.Add($"{food4ChckBx.Text.PadRight(15)}{food4priceLbl.Text.PadRight(8)}  {food4countMtxtb.Text.PadRight(8)}{price}\n");
+                            paraghraph.Add($"{food4ChckBx.Text.PadRight(15)} {food4priceLbl.Text.PadRight(8)}  {food4countMtxtb.Text.PadRight(8)}{price}\n");
                         }
                     }
                 }
             }
-            paraghraph.Add($" Cafe Total Price : {cafePriceLbl.Text}\n");
+            paraghraph.Add($"Cafe Total Price : {cafePriceLbl.Text} AZN\n");
 
-
-            paraghraph.Add($"\n");
-            paraghraph.Add($"\n");
-            paraghraph.Add($" ---------------------------------------------\n");
-            paraghraph.Add($" Total Price : {double.Parse(finishpriceLbl.Text)}\n");
+            paraghraph.Add($"---------------------------------------------\n");
+            paraghraph.Add($"Total Price : {double.Parse(finishpriceLbl.Text)} AZN\n");
 
 
             doc.Add(paraghraph);
